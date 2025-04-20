@@ -1,0 +1,374 @@
+/* Catppuccin Mocha Palette */
+:root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --text: #cdd6f4;
+    --subtext0: #a6adc8;
+    --blue: #89b4fa;
+    --pink: #f5c2e7;
+    --green: #a6e3a1;
+    --red: #f38ba8;
+    --peach: #fab387;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* CRT Shell */
+.crt-screen {
+    background-color: var(--base);
+    padding: 40px 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.85);
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* add space for banners */
+}
+
+/* Layout Flex */
+.layout {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+}
+
+/* Sidebar Links */
+.sidebar {
+    min-width: 150px;
+    max-width: 150px;
+    background-color: var(--mantle);
+    border-right: 2px dashed var(--surface0);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: var(--blue);
+}
+
+.sidebar a {
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 2px;
+}
+
+.sidebar a:hover {
+    background-color: var(--surface0);
+    color: var(--green);
+}
+
+/* Main Page Content */
+.page {
+    flex: 1;
+    background-color: var(--mantle);
+    border: 3px dashed var(--surface0);
+    border-radius: 6px;
+    margin-left: 20px;
+    padding: 20px;
+    box-shadow: inset 0 0 60px var(--surface1);
+    position: relative;
+
+    /* CRT curve effect */
+    transform: scale(1.01);
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Scanlines */
+.crt-screen::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.25;
+    animation: scanline-fade 2s infinite;
+}
+
+@keyframes scanline-fade {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.15; }
+}
+
+/* Optional CRT flicker */
+.crt-screen::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    animation: flicker 0.1s infinite;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 9;
+    opacity: 0.05;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 0.02; }
+    50% { opacity: 0.06; }
+}
+
+/* Headings */
+h3 {
+    color: var(--blue);
+    background-color: var(--surface0);
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 1.2em;
+    border-left: 4px solid var(--green);
+    box-shadow: inset 0 0 3px var(--blue);
+    text-shadow: 0 0 2px var(--blue);
+}
+
+/* HR */
+hr {
+    border: none;
+    height: 2px;
+    background: repeating-linear-gradient(
+        to right,
+        var(--surface0),
+        var(--surface0) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    margin: 30px 0;
+}
+
+/* Copy Section */
+.copy-section {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface0);
+    border: 2px dashed var(--subtext0);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.copy-section input {
+    flex: 1;
+    padding: 6px 10px;
+    background-color: var(--mantle);
+    color: var(--text);
+    border: 2px solid var(--surface1);
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.copy-section button {
+    margin-left: 10px;
+    padding: 6px 14px;
+    background-color: var(--green);
+    color: var(--base);
+    font-weight: bold;
+    font-family: monospace;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 2px 2px var(--surface1);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.copy-section button:hover {
+    background-color: var(--peach);
+    color: var(--mantle);
+}
+
+/* Vertical Banners */
+.vertical-banner {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface1);
+    border: 2px dashed var(--surface0);
+    color: var(--blue);
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    z-index: 11;
+}
+
+.left-banner {
+    border-right: none;
+    margin-right: 10px;
+}
+
+.right-banner {
+    border-left: none;
+    margin-left: 10px;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-orientation: mixed;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 2px var(--green);
+}
+
+.johnvert-banner {
+    width: 500px;
+    height: 1000px;
+    max-height: 100%;
+    background-color: var(--surface0);
+    border-left: 3px double var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    box-shadow: inset 0 0 10px var(--mantle);
+    overflow: hidden;
+    position: relative;
+}
+
+.johnvert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: var(--yellow);
+    text-shadow: 0 0 4px var(--red);
+    line-height: 1.2;
+    text-align: center;
+    animation: flicker 0.2s infinite;
+}
+
+.johnvert-content .line {
+    white-space: nowrap;
+}
+
+/* Retro flicker effect */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    10% { opacity: 0.9; }
+    20% { opacity: 0.85; }
+    30% { opacity: 1.05; }
+    40% { opacity: 0.95; }
+    50% { opacity: 0.85; }
+    60% { opacity: 1.05; }
+    70% { opacity: 0.8; }
+    80% { opacity: 1.1; }
+    90% { opacity: 0.95; }
+}
+
+/* Scanline Overlay */
+.johnvert-banner::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.2) 0px,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    opacity: 0.25;
+    z-index: 1;
+}
+
+/* Optional: Add CRT border glow */
+.johnvert-banner {
+    border: 3px solid var(--blue);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+button {
+    font-family: 'Courier New', monospace;
+    background-color: #f1f1f1; /* Light gray for a retro background */
+    border: 2px solid #000000; /* Black border for a sharp look */
+    color: #333333; /* Dark gray text */
+    padding: 8px 16px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px #000;
+    transition: all 0.1s ease-in-out;
+    border-radius: 3px; /* Rounded corners, optional for retro */
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #dcdcdc; /* Darker gray when hovering */
+    border-color: #666666; /* Lighter border color */
+    box-shadow: inset 0 0 10px #444; /* Slight shadow on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Active button state */
+button:active {
+    background-color: #b8b8b8;
+    box-shadow: inset 0 0 15px #222;
+}
+
+/* Focus effect */
+button:focus {
+    outline: none;
+    border: 2px solid #0099ff; /* Blue outline for focus */
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-family: 'VT323', monospace;
+    color: #00FF9F;
+
+}
+
+a {
+    font-family: 'VT323', monospace;
+    color: #965eff;
+    font-size: 18px;
+}
+
+li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 25px;
+}
+
+li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #FF00CC;
+    text-shadow: 0 0 4px #FF00CC;
+}
