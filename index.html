@@ -1,74 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Sam</title>
+        <meta charset="utf-8">
+        <title>Sam - Redirecting</title>
         <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="crt-screen">
-            <div class="vertical-banner left-banner">
-                <span class="vertical-text">SAM // SYSTEM</span>
-            </div>
-
-            <div class="layout">
-                <nav class="sidebar">
-                    <h3>Sam</h3>
-                    <a href="./index.html">Home</a>
-                    <a href="./projects.html">Projects</a>
-                    <a href="./blog.html">Blog</a>
-                </nav>
-                <div class="page">
-                    <div class="banner-ad">
-                        <iframe src="https://john.citrons.xyz/embed?ref=samsucksatwebsites.pages.dev" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe>
-                    </div>
-                    <hr>
-                    <h3>About Me...</h3>
-                    <p>
-                        Hi, I am Sam, I am a transgender front end web designer, I play War Robots, Roblox, MineCraft, Garry's Mod, 
-                        and ScrewDrivers, I have made a total of 20~ websites, only 4 remain publicly released to this day, I enjoy 
-                        making small projects, some of them I actually publish, but usually if they're not ready for the internet 
-                        they stay locked away on my hard drive forever rather it be no lisencing or just nothing that I find remotely 
-                        interesting about them
-                    </p>
-                    <hr>
-                    <h3>88x31 buttons...</h3>
-                    <p>My Button:</p>
-                    <div class="copy-section">
-                        <input type="text" id="button-code" value='<a href="https://samsucksatwebsites.pages.dev"><img src="https://samsucksatwebsites.pages.dev/assets/button.gif" alt="Sams Button"></a>' readonly>
-                        <button onclick="copyCode()">Copy</button>
-                    </div>
-                    <p></p>
-                    <a href="https://samsucksatwebsites.pages.dev"><img src="./assets/button.gif" alt="Sam's Button"></a>
-                    <p>Other People's Buttons :3</p>            
-                    <p>None yet...</p>
-                    <hr>
-                    <h3>Webrings</h3>
-                    <p>I hope I can get into this one:</p>
-                        <script src="https://transring.neocities.org/ring.js"></script>
-                        <button onclick="window.location.href='https://webring.bucketfish.me/redirect.html?to=prev&name=Sam'">← Previous</button>
-                        <button onclick="window.location.href='https://webring.bucketfish.me/'">Bucket Webring</button>
-                        <button onclick="window.location.href='https://webring.bucketfish.me/redirect.html?to=random&name=Sam'">Random</button>
-                        <button onclick="window.location.href='https://webring.bucketfish.me/redirect.html?to=next&name=Sam'">Next →</button>
-                    <hr>
-                    <h3>Toatally awesome footer...</h3>
-                    <p>You reached the bottom of this webpage.. click <a href="./index.html#">here</a> to go back to the top :p</p>
-                </div>
-            </div>
-            
-            <aside class="johnvert-banner">
-                <img src="./assets/banner.png" alt="Retro Ad" class="johnvert-image">
-            </aside>            
-        </div>
-
+        <p>Redirecting you to https://violetroots.nekoweb.org/</p>
+        <p>Press <a href="https://violetroots.nekoweb.org/">here</a> if you're not redirected in 5 seconds.</p>
         <script>
-            function copyCode() {
-                const input = document.getElementById("button-code");
-                input.select();
-                input.setSelectionRange(0, 99999);
-                document.execCommand("copy");
-                alert("Copied to clipboard!");
-            }
-        </script>            
+            const delay = 5000;
+const targetURL = "https://violetroots.nekoweb.org/";
+setTimeout(() => {
+  window.location.href = targetURL;
+}, delay);
+        </script>
     </body>
 </html>
